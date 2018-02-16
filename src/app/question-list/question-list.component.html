@@ -1,0 +1,18 @@
+<app-question-form></app-question-form>
+
+<div class="container">
+  <div class="question pt-3" *ngFor="let question of questions; let i = index">
+    <div class="card">
+      <div class="card-header">
+        {{ question.text }}
+        <button type="button" class="btn btn-light text-primary" (click)="question.hide = !question.hide">{{ question.hide ? 'Show' : 'Hide' }}</button>
+        <button type="button" class="btn btn-light text-danger pl-2" (click)="deleteQuestion(i)">Delete</button>
+      </div>
+      <div class="card-body" [hidden]="question.hide">
+        <p class="card-text">
+          {{ question.answer }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
